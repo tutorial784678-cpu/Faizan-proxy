@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<title>FAIZAN PROXY — Private Web Gateway</title>
+<style>
+:root{color-scheme:dark;--bg:#080d1b;--panel:rgba(19,29,53,.78);--line:rgba(155,181,255,.18);--muted:#9aabc9;--blue:#6b8cff;--cyan:#55e0dc}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 5%,#1b3264 0,transparent 40%),radial-gradient(ellipse at 90% 85%,#20205a 0,transparent 38%),var(--bg);font:15px/1.5 Inter,system-ui,Segoe UI,sans-serif;color:#eef3ff}
+.wrap{max-width:1100px;margin:auto;padding:28px 20px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:48px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em}.logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#5d7dff,#55e0dc);color:#081226;font-size:22px;box-shadow:0 8px 30px #456cff55}.pill{border:1px solid var(--line);padding:7px 12px;border-radius:99px;color:#c4d3f5;font-size:12px}
+.hero{text-align:center;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.22em}.hero h1{font-size:clamp(36px,7vw,64px);line-height:1.04;margin:12px 0;background:linear-gradient(90deg,#fff,#a9c2ff 55%,#66e7df);background-clip:text;color:transparent}.hero p{max-width:650px;margin:0 auto;color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:0 24px 80px #0006;backdrop-filter:blur(18px);max-width:850px;margin:28px auto}
+label{display:block;color:#bdcbed;font-size:13px;font-weight:650;margin:0 0 9px}.urlrow{display:flex;gap:10px}.urlrow input{flex:1;min-width:0}.field,input,select{width:100%;background:#080f22;border:1px solid #293a60;border-radius:13px;padding:15px 14px;color:#f4f7ff;font:inherit;outline:none}.field:focus,input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #6b8cff22}button{border:0;border-radius:13px;padding:0 22px;background:linear-gradient(120deg,#6b8cff,#55dcd8);color:#071226;font-weight:800;font-size:14px;cursor:pointer;min-height:50px}button:disabled{opacity:.55;cursor:wait}.options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:17px 0}.hint{font-size:12px;color:var(--muted);margin-top:10px}.status{display:flex;align-items:center;gap:9px;color:#aab9d7;font-size:13px;margin-top:18px}.dot{width:8px;height:8px;border-radius:50%;background:#8b96ad}.dot.on{background:#42e0a0;box-shadow:0 0 12px #42e0a0}.viewer{max-width:1100px;margin:20px auto 0}.viewerhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.viewerhead h2{font-size:16px;margin:0}.viewer iframe{width:100%;height:66vh;min-height:420px;background:white;border:1px solid var(--line);border-radius:18px}.smallbtn{min-height:36px;padding:0 12px;font-size:12px;background:#182746;color:#dce7ff;border:1px solid var(--line)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:850px;margin:18px auto}.feature{border:1px solid var(--line);background:#101a31aa;padding:17px;border-radius:17px}.feature b{display:block;margin:7px 0 3px}.feature span{color:var(--muted);font-size:12px}.notice{max-width:850px;margin:18px auto;color:#8fa2c6;font-size:12px;text-align:center}footer{text-align:center;color:#7788a8;font-size:12px;margin-top:45px}
+@media(max-width:650px){.top{margin-bottom:34px}.pill{display:none}.urlrow{flex-direction:column}.urlrow button{width:100%}.options,.features{grid-template-columns:1fr}.viewer iframe{height:58vh;min-height:360px}.wrap{padding:18px 13px 35px}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="top"><div class="brand"><div class="logo">F</div><span>FAIZAN PROXY</span></div><div class="pill">SECURE WEB GATEWAY · USA</div></header>
+<section class="hero"><div class="eyebrow">BROWSE THROUGH A REMOTE GATEWAY</div><h1>Your web, your route.</h1><p>Enter a public website address and open it through your configured United States proxy server.</p></section>
+<section class="card">
+<label for="api">Proxy server API address</label><input id="api" placeholder="https://your-proxy-server.example.com" autocomplete="url">
+<div class="hint">Set this to the public URL of your separately deployed proxy server.</div>
+<div style="height:18px"></div><label for="url">Website URL</label>
+<div class="urlrow"><input id="url" placeholder="https://example.com" inputmode="url" autocomplete="url"><button id="connect">CONNECT</button></div>
+<div class="options"><div><label for="country">Gateway location</label><select id="country"><option value="US" selected>🇺🇸 United States</option></select></div><div><label for="mode">Connection mode</label><select id="mode"><option>HTTP / HTTPS Web Proxy</option></select></div></div>
+<div class="status"><span class="dot" id="dot"></span><span id="status">Not connected</span></div>
+<div class="hint" id="message" role="status">Your proxy server must be deployed and configured before connecting.</div>
+</section>
+<section class="features">
+<div class="feature">🌐<b>Remote gateway</b><span>Requests are routed through your external USA server.</span></div>
+<div class="feature">📱<b>Mobile ready</b><span>Responsive interface for phones, tablets and desktop.</span></div>
+<div class="feature">🛡️<b>Safer by design</b><span>Backend blocks private and local network destinations.</span></div>
+</section>
+<section class="viewer" id="viewer" hidden><div class="viewerhead"><h2>Proxied website</h2><button class="smallbtn" id="openTab">Open in new tab</button></div><iframe id="frame" title="Proxied website" referrerpolicy="no-referrer"></iframe></section>
+<p class="notice">This is an HTTP(S) web proxy, not a device-wide VPN. Some sites may not work if they require complex JavaScript, logins, streaming DRM, or block proxy traffic. Use only where you have permission and follow local law.</p>
+<footer>© <span id="year"></span> FAIZAN PROXY · Built for responsible browsing</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let lastProxyUrl='';
+$('year').textContent=new Date().getFullYear();
+$('api').value=localStorage.getItem('faizanProxyApi')||'';
+$('api').addEventListener('change',()=>localStorage.setItem('faizanProxyApi',$('api').value.trim().replace(/\/+$/,'')));
+function setStatus(text,on=false){$('status').textContent=text;$('dot').classList.toggle('on',on)}
+$('connect').addEventListener('click',async()=>{
+ const api=$('api').value.trim().replace(/\/+$/,'');let target=$('url').value.trim();
+ if(!api){$('message').textContent='Please enter your deployed proxy server API address.';return}
+ if(!target){$('message').textContent='Please enter a website URL.';return}
+ if(!/^https?:\/\//i.test(target))target='https://'+target;
+ try{const u=new URL(target);if(!['http:','https:'].includes(u.protocol))throw Error('Only HTTP and HTTPS URLs are supported.');target=u.href}catch(e){$('message').textContent=e.message||'Please enter a valid website URL.';return}
+ $('connect').disabled=true;setStatus('Connecting…');$('message').textContent='Checking the remote gateway and requesting the website…';$('viewer').hidden=true;
+ try{
+  const health=await fetch(api+'/health',{headers:{'Accept':'application/json'}});
+  if(!health.ok)throw Error('Proxy server health check failed ('+health.status+').');
+  const h=await health.json();if(h.region!=='US')throw Error('The configured gateway did not identify itself as a US server.');
+  const proxyUrl=api+'/proxy?url='+encodeURIComponent(target);
+  const r=await fetch(proxyUrl,{headers:{'Accept':'application/json'}});
+  const data=await r.json();if(!r.ok)throw Error(data.error||'Website request failed.');
+  $('frame').srcdoc=data.html;$('viewer').hidden=false;lastProxyUrl=proxyUrl;
+  setStatus('Connected via USA gateway',true);$('message').textContent='Gateway responded successfully. The page is displayed below; some websites may restrict proxy rendering.';
+ }catch(e){setStatus('Connection failed');$('message').textContent=e.message+' Check the API URL, server deployment and CORS settings.'}
+ finally{$('connect').disabled=false}
+});
+$('openTab').addEventListener('click',()=>{if(lastProxyUrl)window.open(lastProxyUrl,'_blank','noopener,noreferrer')});
+$('url').addEventListener('keydown',e=>{if(e.key==='Enter')$('connect').click()});
+</script></body></html>
